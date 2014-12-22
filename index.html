@@ -1,0 +1,49 @@
+<html>
+<head>
+    <script src="lib/underscore.js"></script >
+    <script src="lib/jquery.js"></script >
+    <script src="lib/backbone.js"></script >
+</head>
+
+<body>
+
+<script >
+
+
+
+    Person = Backbone.Model.extend({
+
+        defaults: {
+
+            first: "",
+            second: ""
+
+        },
+
+        initialize: function(){
+            alert("You made a model, son!");
+
+            this.on('change:first', function(model){
+                nizzame = this.name();
+                alert(nizzame);
+            });
+        },
+
+        name : function(){
+            return this.get('first') + " " + this.get('second')
+        }
+    });
+
+    People = Backbone.Collection.extend({
+        model: Person
+    })
+
+    var person1 = new Person({first: "Kevin", second: "Moore"})
+
+
+
+
+
+</script >
+</body>
+</html>
